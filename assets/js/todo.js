@@ -24,5 +24,9 @@ angulartodo.controller('todoController', function ($scope) {
 		return parseInt( (done_total/$scope.todoItems.length)*100);
 	};
 
+	$scope.deleteItem = function (item, key){
+		$scope.todoItems.splice(key,1);
+	};
+
 });
 

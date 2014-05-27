@@ -29,7 +29,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-										<p ng-if="!anyItems()" class="alert alert-warning">
+										<p ng-show="!anyItems()" class="alert alert-warning">
 											No items in list...
 										</p>
 										<div ng-show="anyItems()" class="progress progress-striped">
@@ -39,9 +39,16 @@
 										</div>
 										<div ng-show="anyItems()">
 											<ul class="list-group">
-												<li ng-repeat="(key,item) in todoItems" class="list-group-item">
-													<input type="checkbox" ng-model="item.done"> {{ item.text }}
-												</li>
+												
+												<div ng-repeat="(key,item) in todoItems" class="input-group">
+													<span class="input-group-addon">
+														<input ng-model="item.done" type="checkbox">
+													</span>
+													<input type="text" value="{{ item.text }}" class="form-control" disabled="disabled">
+													<!-- <span class="input-group-addon glyphicon glyphicon-pencil"></span> -->
+													<span ng-click="deleteItem(item,key)" class="input-group-addon glyphicon glyphicon-trash"></span>
+												</div>
+												
 											</ul>
 										</div>
 									</div>
