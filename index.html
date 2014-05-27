@@ -27,12 +27,33 @@
 							<div class="panel-heading"><h3>Things to do!</h3>
 							</div>
 							<div class="panel-body">
-								<ul class="list-group">
-									<li ng-repeat="(key,item) in todos" class="list-group-item">
-										<input type="checkbox" ng-model="item.done"> {{ item.text }}
-									</li>
-								</ul>
-
+								<div class="row">
+									<div class="col-md-12">
+										<p ng-if="!anyItems()" class="alert alert-warning">
+											No items in list...
+										</p>
+										<div ng-show="anyItems()" class="progress progress-striped">
+											<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ getDonePercentaje() }}%">
+												<span class="sr-only">40% Complete (success)</span>
+											</div>
+										</div>
+										<div ng-show="anyItems()">
+											<ul class="list-group">
+												<li ng-repeat="(key,item) in todoItems" class="list-group-item">
+													<input type="checkbox" ng-model="item.done"> {{ item.text }}
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-9">
+										<input type="text" class="form-control input-lg" placeholder="Add item to list..." ng-model="newItem">
+									</div>
+									<div class="col-md-3">
+										<input class="btn btn-primary btn-lg" type="submit" value="Add"  ng-click="addItem()">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
