@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="angulartodo">
+<head>
+	<title>Angular to-do list</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+	<script type="text/javascript" src="js/todo.js"></script>
+</head>
+	<body>
+		<div ng-controller="todoController">
+			<div class="page-header">
+				<h1>To-do list <small>Angular JS</small></h1>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading"><h3>Things to do!</h3>
+							</div>
+							<div class="panel-body">
+								<ul class="list-group">
+									<li ng-repeat="(key,item) in todos" class="list-group-item">
+										<input type="checkbox" ng-model="item.done"> {{ item.text }}
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
